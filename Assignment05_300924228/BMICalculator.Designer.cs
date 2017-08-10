@@ -92,6 +92,7 @@
             this.ImperialRadioButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.ImperialRadioButton.UseCompatibleTextRendering = true;
             this.ImperialRadioButton.UseVisualStyleBackColor = false;
+            this.ImperialRadioButton.CheckedChanged += new System.EventHandler(this.ImperialRadioButton_CheckedChanged);
             // 
             // MatricRadioButton
             // 
@@ -108,6 +109,7 @@
             this.MatricRadioButton.Text = "Matric Units";
             this.MatricRadioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.MatricRadioButton.UseVisualStyleBackColor = false;
+            this.MatricRadioButton.CheckedChanged += new System.EventHandler(this.MatricRadioButton_CheckedChanged);
             // 
             // tableLayoutPanel2
             // 
@@ -248,6 +250,7 @@
             this.CalculateBMI.TabIndex = 1;
             this.CalculateBMI.Text = "Calculate BMI";
             this.CalculateBMI.UseVisualStyleBackColor = false;
+            this.CalculateBMI.Click += new System.EventHandler(this.CalculateBMI_Click);
             // 
             // ResultLabel
             // 
