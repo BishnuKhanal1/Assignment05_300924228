@@ -8,7 +8,7 @@ using System.Windows.Forms;
  * Student No: 300924228
  * Date: August 10, 2017
  * Description: This is the BMI Calculator wondow form for the prospective Assignment 05 of COMP123-s2017
- * This calculator prompts users to input information like gender, age height and weight and returns a standard result
+ * Version: 0.1-Started SplashForm first
  */
 namespace Assignment05_300924228
 {
@@ -22,7 +22,7 @@ namespace Assignment05_300924228
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new BMICalculatorForm());
+            Application.Run(new SplashForm());
         }
     }
 }
