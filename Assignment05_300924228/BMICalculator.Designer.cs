@@ -41,8 +41,8 @@
             this.WeightNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.BMIResultTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.CalculateBMI = new System.Windows.Forms.Button();
             this.ResetButton = new System.Windows.Forms.Button();
+            this.CalculateBMI = new System.Windows.Forms.Button();
             this.ResultLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -224,6 +224,18 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(297, 42);
             this.tableLayoutPanel3.TabIndex = 12;
             // 
+            // ResetButton
+            // 
+            this.ResetButton.BackColor = System.Drawing.Color.Maroon;
+            this.ResetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ResetButton.ForeColor = System.Drawing.Color.White;
+            this.ResetButton.Location = new System.Drawing.Point(151, 3);
+            this.ResetButton.Name = "ResetButton";
+            this.ResetButton.Size = new System.Drawing.Size(140, 35);
+            this.ResetButton.TabIndex = 2;
+            this.ResetButton.Text = "Reset Form";
+            this.ResetButton.UseVisualStyleBackColor = false;
+            // 
             // CalculateBMI
             // 
             this.CalculateBMI.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -236,18 +248,6 @@
             this.CalculateBMI.TabIndex = 1;
             this.CalculateBMI.Text = "Calculate BMI";
             this.CalculateBMI.UseVisualStyleBackColor = false;
-            // 
-            // ResetButton
-            // 
-            this.ResetButton.BackColor = System.Drawing.Color.Maroon;
-            this.ResetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ResetButton.ForeColor = System.Drawing.Color.White;
-            this.ResetButton.Location = new System.Drawing.Point(151, 3);
-            this.ResetButton.Name = "ResetButton";
-            this.ResetButton.Size = new System.Drawing.Size(140, 35);
-            this.ResetButton.TabIndex = 2;
-            this.ResetButton.Text = "Reset Form";
-            this.ResetButton.UseVisualStyleBackColor = false;
             // 
             // ResultLabel
             // 
@@ -276,6 +276,7 @@
             this.Name = "BMICalculatorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BMI Calculator";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BMICalculatorForm_FormClosing);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);

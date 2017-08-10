@@ -12,7 +12,7 @@ using System.Windows.Forms;
  * Student No: 300924228
  * Date: August 10, 2017
  * Description: This is the BMI Calculator wondow form for the prospective Assignment 05 of COMP123-s2017
- * This calculator prompts users to input information like gender, age height and weight and returns a standard result
+ * Version: 0.2- Created BMICalculatorForm_FormClosing event handler
  */
 namespace Assignment05_300924228
 {
@@ -21,6 +21,15 @@ namespace Assignment05_300924228
         public BMICalculatorForm()
         {
             InitializeComponent();
+        }
+        /// <summary>
+        /// This is the BMICalculatorForm_FormClosing event handler, closes SplashForm after 3 seconds
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BMICalculatorForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
