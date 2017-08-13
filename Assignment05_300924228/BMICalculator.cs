@@ -12,7 +12,7 @@ using System.Windows.Forms;
  * Student No: 300924228
  * Date: August 10, 2017
  * Description: This is the BMI Calculator wondow form for the prospective Assignment 05 of COMP123-s2017
- * Version: 0.4- Refactured the CalculateButton_Click event handler/ refactured the CalculatorForm
+ * Version: 0.5- Added ResetButton_Click event handler
  */
 namespace Assignment05_300924228
 {
@@ -67,6 +67,12 @@ namespace Assignment05_300924228
 
             }
         }
+        /// <summary>
+        /// This event handler calculates and returns the BMI result
+        /// Also checks if the user clicks imperial or matric units and returns the result
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CalculateBMI_Click(object sender, EventArgs e)
 
         {
