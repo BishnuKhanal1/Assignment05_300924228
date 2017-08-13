@@ -12,7 +12,7 @@ using System.Windows.Forms;
  * Student No: 300924228
  * Date: August 10, 2017
  * Description: This is the BMI Calculator wondow form for the prospective Assignment 05 of COMP123-s2017
- * Version: 0.3- Created CalculateBMI click event
+ * Version: 0.4- Refactured the CalculateButton_Click event handler/ refactured the CalculatorForm
  */
 namespace Assignment05_300924228
 {
@@ -21,8 +21,8 @@ namespace Assignment05_300924228
         public BMICalculatorForm()
         {
             InitializeComponent();
-        }      
-        
+        }
+
         /// <summary>
         /// This is the BMICalculatorForm_FormClosing event handler, closes SplashForm after 3 seconds
         /// </summary>
@@ -46,8 +46,6 @@ namespace Assignment05_300924228
             {
                 HeightInInchLabel.Text = "Height in Inches";
                 WeightInPounds.Text = "Weight in Pounds";
-                HeightNumericUpDown.DecimalPlaces = 0;
-                WeightNumericUpDown.DecimalPlaces = 0;
             }
         }
         /// <summary>
@@ -63,35 +61,72 @@ namespace Assignment05_300924228
             {
                 HeightInInchLabel.Text = "Height in Meters";
                 WeightInPounds.Text = "Weight in Kg";
-                HeightNumericUpDown.DecimalPlaces = 2;
-                WeightNumericUpDown.DecimalPlaces = 2;
+            }
+            if (BMIResultTextBox.Text == "")
+            {
+
             }
         }
         private void CalculateBMI_Click(object sender, EventArgs e)
-       
+
         {
             if (ImperialRadioButton.Checked)
             {
-                double bmi;
-                int heightInInches = 0;
-                int weightInPounds = 0;
-                heightInInches = Convert.ToInt32(HeightNumericUpDown.Text);
-                weightInPounds = Convert.ToInt32(WeightNumericUpDown.Text);
-
-                bmi = weightInPounds * 703 / (heightInInches * heightInInches);
-                BMIResultTextBox.Text = "Your BMI is : {0:f2}" + bmi;
+                int heightInInches = Convert.ToInt32(HeightTextBox.Text);
+                int weightInPounds = Convert.ToInt32(WeightTextBox.Text);
+                double bmi = weightInPounds * 703 / (heightInInches * heightInInches);
+                
+                if (bmi < 18.5)
+                {
+                    BMIResultTextBox.Text = "Your BMI is :" + bmi + "\nYou're underweight!";
+                }
+                if ((bmi >= 18.5) && (bmi <= 24.9))
+                {
+                    BMIResultTextBox.Text = "Your BMI is :" + bmi + "\nIt's Normal!";
+                }
+                if ((bmi >= 25) && (bmi <= 29.9))
+                {
+                    BMIResultTextBox.Text = "Your BMI is :" + bmi+ "\nYou're Overweight!";
+                }
+                if (bmi >= 30)
+                {
+                    BMIResultTextBox.Text = "Your BMI is :" + bmi + "\nObese!";
+                }
             }
             if (MatricRadioButton.Checked)
             {
-                double bmi;
-                double heightInMeters = 0;
-                double weightInKg = 0;
-                heightInMeters = Convert.ToDouble(HeightNumericUpDown.Text);
-                weightInKg = Convert.ToDouble(WeightNumericUpDown.Text);
-
-                bmi = weightInKg * 703 / (heightInMeters * heightInMeters);
-                BMIResultTextBox.Text = "Your BMI is : {0:f2}" + bmi;
+                double heightInMeters = Convert.ToDouble(HeightTextBox.Text);
+                double weightInKg = Convert.ToDouble(WeightTextBox.Text);
+                double bmi = weightInKg / (heightInMeters * heightInMeters);
+                
+                if(bmi < 18.5)
+                {
+                    BMIResultTextBox.Text = "Your BMI is :" + bmi + "\nYou're underweight!";
+                }
+                if((bmi >= 18.5) && (bmi <= 24.9))
+                {
+                    BMIResultTextBox.Text = "Your BMI is :" + bmi + "\nIt's Normal!";
+                }
+                if((bmi >= 25) && (bmi <= 29.9))
+                {
+                    BMIResultTextBox.Text = "Your BMI is :" + bmi + "\nYou're Overweight!";
+                }
+                if(bmi >= 30)
+                {
+                    BMIResultTextBox.Text = "Your BMI is :" + bmi+ "\nObese!";
+                }
             }
         }
-      }
-   }
+        /// <summary>
+        /// This is the sesent event handler, clears the information when it is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ResetButton_Click(object sender, EventArgs e)
+        {           
+                HeightTextBox.Text = "0";
+                WeightTextBox.Text = "0";
+                BMIResultTextBox.Text = "";
+        }
+    }
+}

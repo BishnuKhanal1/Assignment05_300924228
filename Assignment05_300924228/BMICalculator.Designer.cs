@@ -33,12 +33,12 @@
             this.ImperialRadioButton = new System.Windows.Forms.RadioButton();
             this.MatricRadioButton = new System.Windows.Forms.RadioButton();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.HeightTextBox = new System.Windows.Forms.TextBox();
             this.MyHeightLabel = new System.Windows.Forms.Label();
             this.MyWeightLabel = new System.Windows.Forms.Label();
             this.HeightInInchLabel = new System.Windows.Forms.Label();
             this.WeightInPounds = new System.Windows.Forms.Label();
-            this.HeightNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.WeightNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.WeightTextBox = new System.Windows.Forms.TextBox();
             this.BMIResultTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.ResetButton = new System.Windows.Forms.Button();
@@ -46,8 +46,6 @@
             this.ResultLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.HeightNumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.WeightNumericUpDown)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -116,12 +114,12 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.HeightTextBox, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.MyHeightLabel, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.MyWeightLabel, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.HeightInInchLabel, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.WeightInPounds, 1, 3);
-            this.tableLayoutPanel2.Controls.Add(this.HeightNumericUpDown, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.WeightNumericUpDown, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.WeightTextBox, 0, 3);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 108);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 4;
@@ -131,6 +129,18 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.92701F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(301, 137);
             this.tableLayoutPanel2.TabIndex = 2;
+            // 
+            // HeightTextBox
+            // 
+            this.HeightTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.HeightTextBox.BackColor = System.Drawing.Color.LightCyan;
+            this.HeightTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.HeightTextBox.Location = new System.Drawing.Point(77, 27);
+            this.HeightTextBox.Name = "HeightTextBox";
+            this.HeightTextBox.Size = new System.Drawing.Size(70, 38);
+            this.HeightTextBox.TabIndex = 30;
+            this.HeightTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // MyHeightLabel
             // 
@@ -179,33 +189,23 @@
             this.WeightInPounds.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.WeightInPounds.UseCompatibleTextRendering = true;
             // 
-            // HeightNumericUpDown
+            // WeightTextBox
             // 
-            this.HeightNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.HeightNumericUpDown.BackColor = System.Drawing.Color.LightCyan;
-            this.HeightNumericUpDown.DecimalPlaces = 2;
-            this.HeightNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HeightNumericUpDown.Location = new System.Drawing.Point(57, 27);
-            this.HeightNumericUpDown.Name = "HeightNumericUpDown";
-            this.HeightNumericUpDown.Size = new System.Drawing.Size(90, 35);
-            this.HeightNumericUpDown.TabIndex = 29;
-            // 
-            // WeightNumericUpDown
-            // 
-            this.WeightNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.WeightNumericUpDown.BackColor = System.Drawing.Color.LightCyan;
-            this.WeightNumericUpDown.DecimalPlaces = 2;
-            this.WeightNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WeightNumericUpDown.Location = new System.Drawing.Point(57, 98);
-            this.WeightNumericUpDown.Name = "WeightNumericUpDown";
-            this.WeightNumericUpDown.Size = new System.Drawing.Size(90, 35);
-            this.WeightNumericUpDown.TabIndex = 31;
+            this.WeightTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.WeightTextBox.BackColor = System.Drawing.Color.LightCyan;
+            this.WeightTextBox.Location = new System.Drawing.Point(77, 98);
+            this.WeightTextBox.Name = "WeightTextBox";
+            this.WeightTextBox.Size = new System.Drawing.Size(70, 38);
+            this.WeightTextBox.TabIndex = 31;
+            this.WeightTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BMIResultTextBox
             // 
             this.BMIResultTextBox.BackColor = System.Drawing.Color.LightCyan;
             this.BMIResultTextBox.Enabled = false;
-            this.BMIResultTextBox.ForeColor = System.Drawing.Color.Maroon;
+            this.BMIResultTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BMIResultTextBox.ForeColor = System.Drawing.Color.Black;
             this.BMIResultTextBox.Location = new System.Drawing.Point(3, 288);
             this.BMIResultTextBox.Multiline = true;
             this.BMIResultTextBox.Name = "BMIResultTextBox";
@@ -237,6 +237,7 @@
             this.ResetButton.TabIndex = 2;
             this.ResetButton.Text = "Reset Form";
             this.ResetButton.UseVisualStyleBackColor = false;
+            this.ResetButton.Click += new System.EventHandler(this.ResetButton_Click);
             // 
             // CalculateBMI
             // 
@@ -275,6 +276,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.BMIFormLabel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "BMICalculatorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -284,8 +286,6 @@
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.HeightNumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.WeightNumericUpDown)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -303,13 +303,13 @@
         private System.Windows.Forms.Label MyWeightLabel;
         private System.Windows.Forms.Label HeightInInchLabel;
         private System.Windows.Forms.Label WeightInPounds;
-        private System.Windows.Forms.NumericUpDown HeightNumericUpDown;
-        private System.Windows.Forms.NumericUpDown WeightNumericUpDown;
         private System.Windows.Forms.TextBox BMIResultTextBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button ResetButton;
         private System.Windows.Forms.Button CalculateBMI;
         private System.Windows.Forms.Label ResultLabel;
+        private System.Windows.Forms.TextBox HeightTextBox;
+        private System.Windows.Forms.TextBox WeightTextBox;
     }
 }
 
