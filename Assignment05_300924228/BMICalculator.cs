@@ -12,7 +12,7 @@ using System.Windows.Forms;
  * Student No: 300924228
  * Date: August 10, 2017
  * Description: This is the BMI Calculator wondow form for the prospective Assignment 05 of COMP123-s2017
- * Version: 0.7- Refacutred methods and Added private fields and public properties
+ * Version: 0.8- Added KeyPress event handler to control MyHeight & MyWeight text box with Numeric value only
  */
 namespace Assignment05_300924228
 {
@@ -200,9 +200,58 @@ namespace Assignment05_300924228
         {
             
         }
+        private TextBoxBase _textBoxBase;
+        public TextBoxBase TextBoxBase
+        {
+            get
+            {
+                return this._textBoxBase;
+            }
+            set
+            {
+                this._textBoxBase = value;
+            }
+        }
         private void BMIResultTextBox_TextChanged(object sender, EventArgs e)
         {
-            //BMIResultTextBox.Text.ForeColor = Color.Maroon;
+            
+        }
+        /// <summary>
+        /// this method disable user to input any string in MyHeighttextBox.
+        /// Allows to input only numeric values
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void HeightTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Reference if this code: https://stackoverflow.com/questions/463299/how-do-i-make-a-textbox-that-only-accepts-numbers
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+        /// <summary>
+        /// this method disable user to input any string in MyHeighttextBox.
+        /// Allows to input only numeric values
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void WeightTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -76,6 +76,7 @@
             this.HeightTextBox.TabIndex = 30;
             this.HeightTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.HeightTextBox.TextChanged += new System.EventHandler(this.HeightTextBox_TextChanged);
+            this.HeightTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.HeightTextBox_KeyPress);
             // 
             // BMIFormLabel
             // 
@@ -216,6 +217,7 @@
             this.WeightTextBox.Size = new System.Drawing.Size(70, 38);
             this.WeightTextBox.TabIndex = 31;
             this.WeightTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.WeightTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.WeightTextBox_KeyPress);
             // 
             // tableLayoutPanel3
             // 
