@@ -12,7 +12,7 @@ using System.Windows.Forms;
  * Student No: 300924228
  * Date: August 10, 2017
  * Description: This is the BMI Calculator wondow form for the prospective Assignment 05 of COMP123-s2017
- * Version: 0.7- Refacutred / Added private fields and public properties
+ * Version: 0.7- Refacutred methods and Added private fields and public properties
  */
 namespace Assignment05_300924228
 {
