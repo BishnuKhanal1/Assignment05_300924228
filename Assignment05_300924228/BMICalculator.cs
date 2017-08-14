@@ -12,12 +12,72 @@ using System.Windows.Forms;
  * Student No: 300924228
  * Date: August 10, 2017
  * Description: This is the BMI Calculator wondow form for the prospective Assignment 05 of COMP123-s2017
- * Version: 0.5- Added ResetButton_Click event handler
+ * Version: 0.7- Refacutred / Added private fields and public properties
  */
 namespace Assignment05_300924228
 {
     public partial class BMICalculatorForm : Form
     {
+        //Private Instance variables/fields
+        private double _heightInInches;
+        private double _heightInMeter;
+        private double _weightInPounds;
+        private double _weightInKg;
+        private double _bmiResult;
+
+        //Public Properties
+
+        public double HeightInInches
+        {
+            get
+            {
+                return this._heightInInches;
+            }
+            set
+            {
+                this._heightInInches = value;
+            }
+        }
+        public double HeightInMeter
+        {
+            get
+            {
+                return this._heightInMeter;
+            }
+            set
+            {
+                this._heightInMeter = value;
+            }
+        }
+        public double WeightInPounds
+        {
+            get
+            {
+                return this._weightInPounds;
+            }
+            set
+            {
+                this._weightInPounds = value;
+            }
+        }
+        public double WeightInKg
+        {
+            get
+            {
+                return this._weightInKg;
+            }
+            set
+            {
+                this._weightInKg = value;
+            }
+        }
+        public double BmiResult
+        {
+            get
+            {
+                return this._bmiResult;
+            }    
+        }
         public BMICalculatorForm()
         {
             InitializeComponent();
@@ -45,7 +105,7 @@ namespace Assignment05_300924228
             if (ImperialRadioButton.Checked)
             {
                 HeightInInchLabel.Text = "Height in Inches";
-                WeightInPounds.Text = "Weight in Pounds";
+                WeightInPoundLabel.Text = "Weight in Pounds";
             }
         }
         /// <summary>
@@ -60,11 +120,7 @@ namespace Assignment05_300924228
             if (MatricRadioButton.Checked)
             {
                 HeightInInchLabel.Text = "Height in Meters";
-                WeightInPounds.Text = "Weight in Kg";
-            }
-            if (BMIResultTextBox.Text == "")
-            {
-
+                WeightInPoundLabel.Text = "Weight in Kg";
             }
         }
         /// <summary>
@@ -76,63 +132,77 @@ namespace Assignment05_300924228
         private void CalculateBMI_Click(object sender, EventArgs e)
 
         {
+            this._heightInInches = Convert.ToDouble(HeightTextBox.Text);
+            this._weightInPounds = Convert.ToDouble(WeightTextBox.Text);
+            this._heightInMeter = Convert.ToDouble(HeightTextBox.Text);
+            this._weightInKg = Convert.ToDouble(WeightTextBox.Text);
+
             if (ImperialRadioButton.Checked)
             {
-                int heightInInches = Convert.ToInt32(HeightTextBox.Text);
-                int weightInPounds = Convert.ToInt32(WeightTextBox.Text);
-                double bmi = weightInPounds * 703 / (heightInInches * heightInInches);
-                
-                if (bmi < 18.5)
+                this._bmiResult = this._weightInPounds * 703 / (this._heightInInches * this._heightInInches);
+                this._bmiResult = (double)Math.Round(this._bmiResult, 2);
+
+                if (_bmiResult < 18.5)
                 {
-                    BMIResultTextBox.Text = "Your BMI is :" + bmi + "\nYou're underweight!";
+                    BMIResultTextBox.Text = "Your BMI is :" + _bmiResult + "\r\nYou're underweight!";
                 }
-                if ((bmi >= 18.5) && (bmi <= 24.9))
+                if ((_bmiResult >= 18.5) && (_bmiResult <= 24.9))
                 {
-                    BMIResultTextBox.Text = "Your BMI is :" + bmi + "\nIt's Normal!";
+                    BMIResultTextBox.Text = "Your BMI is :" + _bmiResult + "\r\nIt's Normal!";
                 }
-                if ((bmi >= 25) && (bmi <= 29.9))
+                if ((_bmiResult >= 25) && (_bmiResult <= 29.9))
                 {
-                    BMIResultTextBox.Text = "Your BMI is :" + bmi+ "\nYou're Overweight!";
+                    BMIResultTextBox.Text = "Your BMI is :" + _bmiResult + "\r\nYou're Overweight!";
                 }
-                if (bmi >= 30)
+                if (_bmiResult >= 30)
                 {
-                    BMIResultTextBox.Text = "Your BMI is :" + bmi + "\nObese!";
+                    BMIResultTextBox.Text = "Your BMI is :" + _bmiResult + "\r\nObese!";
                 }
             }
             if (MatricRadioButton.Checked)
             {
-                double heightInMeters = Convert.ToDouble(HeightTextBox.Text);
-                double weightInKg = Convert.ToDouble(WeightTextBox.Text);
-                double bmi = weightInKg / (heightInMeters * heightInMeters);
                 
-                if(bmi < 18.5)
+                this._bmiResult = this._weightInKg / (this._heightInMeter * this._heightInMeter);
+                this._bmiResult = (double)Math.Round(this._bmiResult, 2);
+                if (this._bmiResult < 18.5)
                 {
-                    BMIResultTextBox.Text = "Your BMI is :" + bmi + "\nYou're underweight!";
+                    BMIResultTextBox.Text = "Your BMI is :" + this._bmiResult + "\r\nYou're underweight!";
                 }
-                if((bmi >= 18.5) && (bmi <= 24.9))
+                if((this._bmiResult >= 18.5) && (this._bmiResult <= 24.9))
                 {
-                    BMIResultTextBox.Text = "Your BMI is :" + bmi + "\nIt's Normal!";
+                    BMIResultTextBox.Text = "Your BMI is :" + this._bmiResult + "\r\nIt's Normal!";
                 }
-                if((bmi >= 25) && (bmi <= 29.9))
+                if((this._bmiResult >= 25) && (this._bmiResult <= 29.9))
                 {
-                    BMIResultTextBox.Text = "Your BMI is :" + bmi + "\nYou're Overweight!";
+                    BMIResultTextBox.Text = "Your BMI is :" + this._bmiResult + "\r\nYou're Overweight!";
                 }
-                if(bmi >= 30)
+                if(this._bmiResult >= 30)
                 {
-                    BMIResultTextBox.Text = "Your BMI is :" + bmi+ "\nObese!";
+                    BMIResultTextBox.Text = "Your BMI is :" + this._bmiResult + "\r\nObese!";
                 }
             }
         }
         /// <summary>
-        /// This is the sesent event handler, clears the information when it is clicked
+        /// This is the resetButton event handler, clears the information when it is clicked
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void ResetButton_Click(object sender, EventArgs e)
-        {           
-                HeightTextBox.Text = "0";
-                WeightTextBox.Text = "0";
+        {
+            if((WeightTextBox.Text != "") || (HeightTextBox.Text !="") || (BMIResultTextBox.Text != ""))
+            {
+                HeightTextBox.Text = "";
+                WeightTextBox.Text = "";
                 BMIResultTextBox.Text = "";
+            }             
+        }
+        private void HeightTextBox_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+        private void BMIResultTextBox_TextChanged(object sender, EventArgs e)
+        {
+            //BMIResultTextBox.Text.ForeColor = Color.Maroon;
         }
     }
 }
