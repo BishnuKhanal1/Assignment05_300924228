@@ -21,7 +21,6 @@
         }
 
         #region Windows Form Designer generated code
-
         /// <summary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
@@ -44,6 +43,7 @@
             this.ResetButton = new System.Windows.Forms.Button();
             this.CalculateBMI = new System.Windows.Forms.Button();
             this.ResultLabel = new System.Windows.Forms.Label();
+            this.BMIProgressBar = new System.Windows.Forms.ProgressBar();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -54,14 +54,13 @@
             this.BMIResultTextBox.BackColor = System.Drawing.Color.LightCyan;
             this.BMIResultTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.BMIResultTextBox.Enabled = false;
-            this.BMIResultTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BMIResultTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BMIResultTextBox.ForeColor = System.Drawing.Color.Maroon;
             this.BMIResultTextBox.Location = new System.Drawing.Point(3, 288);
             this.BMIResultTextBox.Multiline = true;
             this.BMIResultTextBox.Name = "BMIResultTextBox";
-            this.BMIResultTextBox.Size = new System.Drawing.Size(297, 108);
+            this.BMIResultTextBox.Size = new System.Drawing.Size(297, 77);
             this.BMIResultTextBox.TabIndex = 11;
-            this.BMIResultTextBox.TextChanged += new System.EventHandler(this.BMIResultTextBox_TextChanged);
             // 
             // HeightTextBox
             // 
@@ -75,7 +74,6 @@
             this.HeightTextBox.Size = new System.Drawing.Size(70, 38);
             this.HeightTextBox.TabIndex = 30;
             this.HeightTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.HeightTextBox.TextChanged += new System.EventHandler(this.HeightTextBox_TextChanged);
             this.HeightTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.HeightTextBox_KeyPress);
             // 
             // BMIFormLabel
@@ -271,11 +269,21 @@
             this.ResultLabel.TabIndex = 29;
             this.ResultLabel.Text = "Result";
             // 
+            // BMIProgressBar
+            // 
+            this.BMIProgressBar.BackColor = System.Drawing.Color.Green;
+            this.BMIProgressBar.Location = new System.Drawing.Point(3, 372);
+            this.BMIProgressBar.Maximum = 60;
+            this.BMIProgressBar.Name = "BMIProgressBar";
+            this.BMIProgressBar.Size = new System.Drawing.Size(297, 23);
+            this.BMIProgressBar.TabIndex = 30;
+            // 
             // BMICalculatorForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(304, 441);
+            this.Controls.Add(this.BMIProgressBar);
             this.Controls.Add(this.ResultLabel);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.BMIResultTextBox);
@@ -317,6 +325,7 @@
         private System.Windows.Forms.TextBox WeightTextBox;
         private System.Windows.Forms.TextBox BMIResultTextBox;
         private System.Windows.Forms.TextBox HeightTextBox;
+        private System.Windows.Forms.ProgressBar BMIProgressBar;
     }
 }
 

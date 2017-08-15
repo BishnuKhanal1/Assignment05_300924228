@@ -12,7 +12,7 @@ using System.Windows.Forms;
  * Student No: 300924228
  * Date: August 10, 2017
  * Description: This is the BMI Calculator wondow form for the prospective Assignment 05 of COMP123-s2017
- * Version: 0.8- Added KeyPress event handler to control MyHeight & MyWeight text box with Numeric value only
+ * Version: 0.9- Added Color Progress Bar in proportion to the BMI result calculation
  */
 namespace Assignment05_300924228
 {
@@ -136,6 +136,7 @@ namespace Assignment05_300924228
             this._weightInPounds = Convert.ToDouble(WeightTextBox.Text);
             this._heightInMeter = Convert.ToDouble(HeightTextBox.Text);
             this._weightInKg = Convert.ToDouble(WeightTextBox.Text);
+            
 
             if (ImperialRadioButton.Checked)
             {
@@ -145,18 +146,22 @@ namespace Assignment05_300924228
                 if (_bmiResult < 18.5)
                 {
                     BMIResultTextBox.Text = "Your BMI is :" + _bmiResult + "\r\nYou're underweight!";
+                    BMIProgressBar.ForeColor = Color.Yellow;
                 }
                 if ((_bmiResult >= 18.5) && (_bmiResult <= 24.9))
                 {
                     BMIResultTextBox.Text = "Your BMI is :" + _bmiResult + "\r\nIt's Normal!";
+                    BMIProgressBar.ForeColor = Color.Green;
                 }
                 if ((_bmiResult >= 25) && (_bmiResult <= 29.9))
                 {
                     BMIResultTextBox.Text = "Your BMI is :" + _bmiResult + "\r\nYou're Overweight!";
+                    BMIProgressBar.ForeColor = Color.Orange;
                 }
                 if (_bmiResult >= 30)
                 {
                     BMIResultTextBox.Text = "Your BMI is :" + _bmiResult + "\r\nObese!";
+                    BMIProgressBar.ForeColor = Color.Red;
                 }
             }
             if (MatricRadioButton.Checked)
@@ -167,18 +172,22 @@ namespace Assignment05_300924228
                 if (this._bmiResult < 18.5)
                 {
                     BMIResultTextBox.Text = "Your BMI is :" + this._bmiResult + "\r\nYou're underweight!";
+                    BMIProgressBar.ForeColor = Color.Yellow;
                 }
                 if((this._bmiResult >= 18.5) && (this._bmiResult <= 24.9))
                 {
                     BMIResultTextBox.Text = "Your BMI is :" + this._bmiResult + "\r\nIt's Normal!";
+                    BMIProgressBar.ForeColor = Color.Green;
                 }
                 if((this._bmiResult >= 25) && (this._bmiResult <= 29.9))
                 {
                     BMIResultTextBox.Text = "Your BMI is :" + this._bmiResult + "\r\nYou're Overweight!";
+                    BMIProgressBar.ForeColor = Color.Orange;
                 }
                 if(this._bmiResult >= 30)
                 {
                     BMIResultTextBox.Text = "Your BMI is :" + this._bmiResult + "\r\nObese!";
+                    BMIProgressBar.ForeColor = Color.Red;
                 }
             }
         }
@@ -195,27 +204,7 @@ namespace Assignment05_300924228
                 WeightTextBox.Text = "";
                 BMIResultTextBox.Text = "";
             }             
-        }
-        private void HeightTextBox_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-        private TextBoxBase _textBoxBase;
-        public TextBoxBase TextBoxBase
-        {
-            get
-            {
-                return this._textBoxBase;
-            }
-            set
-            {
-                this._textBoxBase = value;
-            }
-        }
-        private void BMIResultTextBox_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
+        }    
         /// <summary>
         /// this method disable user to input any string in MyHeighttextBox.
         /// Allows to input only numeric values
@@ -224,7 +213,7 @@ namespace Assignment05_300924228
         /// <param name="e"></param>
         private void HeightTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //Reference if this code: https://stackoverflow.com/questions/463299/how-do-i-make-a-textbox-that-only-accepts-numbers
+            //Reference of this code: https://stackoverflow.com/questions/463299/how-do-i-make-a-textbox-that-only-accepts-numbers
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
                 e.Handled = true;
@@ -236,7 +225,7 @@ namespace Assignment05_300924228
             }
         }
         /// <summary>
-        /// this method disable user to input any string in MyHeighttextBox.
+        /// this method disable user to input any string in MyWeighttextBox.
         /// Allows to input only numeric values
         /// </summary>
         /// <param name="sender"></param>
